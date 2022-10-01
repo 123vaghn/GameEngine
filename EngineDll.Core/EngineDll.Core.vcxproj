@@ -1,0 +1,348 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <VCProjectVersion>16.0</VCProjectVersion>
+    <Keyword>Win32Proj</Keyword>
+    <ProjectGuid>{6ea4ac5e-7769-495b-8736-80d7402f4526}</ProjectGuid>
+    <RootNamespace>EngineDll</RootNamespace>
+    <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>ClangCL</PlatformToolset>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>ClangCL</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>ClangCL</PlatformToolset>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>ClangCL</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="Shared">
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <OutDir>$(SolutionDir)bin\$(PlatformTarget)\$(Configuration)\</OutDir>
+    <IntDir>build\$(PlatformTarget)\$(Configuration)\</IntDir>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <OutDir>$(SolutionDir)bin\$(PlatformTarget)\$(Configuration)\</OutDir>
+    <IntDir>build\$(PlatformTarget)\$(Configuration)\</IntDir>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <OutDir>$(SolutionDir)bin\$(PlatformTarget)\$(Configuration)\</OutDir>
+    <IntDir>build\$(PlatformTarget)\$(Configuration)\</IntDir>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <OutDir>$(SolutionDir)bin\$(PlatformTarget)\$(Configuration)\</OutDir>
+    <IntDir>build\$(PlatformTarget)\$(Configuration)\</IntDir>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>WIN32;_DEBUG;ENGINEDLL_EXPORTS;_WINDOWS;_USRDLL;%(PreprocessorDefinitions);ENGINE_DLL_EXTERN;DLL_BUILD;GLAD_GLAPI_EXPORT;GLAD_GLAPI_EXPORT_BUILD</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
+      <LanguageStandard>stdcpp17</LanguageStandard>
+      <AdditionalIncludeDirectories>$(ProjectDir)include\;$(Solution)EngineDll.Internal\include\;$(SolutionDir)include\;$(ProjectDir)include\Scripting\Lua\lib\</AdditionalIncludeDirectories>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <EnableUAC>false</EnableUAC>
+      <AdditionalLibraryDirectories>$(SolutionDir)lib\$(PlatformTarget)\;$(OutputPath)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>SDL2.lib;SDL2main.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>WIN32;NDEBUG;ENGINEDLL_EXPORTS;_WINDOWS;_USRDLL;%(PreprocessorDefinitions);ENGINE_DLL_EXTERN;DLL_BUILD;GLAD_GLAPI_EXPORT;GLAD_GLAPI_EXPORT_BUILD</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
+      <LanguageStandard>stdcpp17</LanguageStandard>
+      <AdditionalIncludeDirectories>$(ProjectDir)include\;$(Solution)EngineDll.Internal\include\;$(SolutionDir)include\;$(ProjectDir)include\Scripting\Lua\lib\</AdditionalIncludeDirectories>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <EnableUAC>false</EnableUAC>
+      <AdditionalLibraryDirectories>$(SolutionDir)lib\$(PlatformTarget)\;$(OutputPath)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>SDL2.lib;SDL2main.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>_DEBUG;ENGINEDLL_EXPORTS;_WINDOWS;_USRDLL;%(PreprocessorDefinitions);ENGINE_DLL_EXTERN;DLL_BUILD;GLAD_GLAPI_EXPORT;GLAD_GLAPI_EXPORT_BUILD</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
+      <LanguageStandard>stdcpp17</LanguageStandard>
+      <AdditionalIncludeDirectories>$(ProjectDir)include\;$(Solution)EngineDll.Internal\include\;$(SolutionDir)include\;$(ProjectDir)include\Scripting\Lua\lib\</AdditionalIncludeDirectories>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <EnableUAC>false</EnableUAC>
+      <AdditionalLibraryDirectories>$(SolutionDir)lib\$(PlatformTarget)\;$(OutputPath)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>SDL2.lib;SDL2main.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>NDEBUG;ENGINEDLL_EXPORTS;_WINDOWS;_USRDLL;%(PreprocessorDefinitions);ENGINE_DLL_EXTERN;DLL_BUILD;GLAD_GLAPI_EXPORT;GLAD_GLAPI_EXPORT_BUILD</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
+      <LanguageStandard>stdcpp17</LanguageStandard>
+      <AdditionalIncludeDirectories>$(ProjectDir)include\;$(Solution)EngineDll.Internal\include\;$(SolutionDir)include\;$(ProjectDir)include\Scripting\Lua\lib\</AdditionalIncludeDirectories>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <EnableUAC>false</EnableUAC>
+      <AdditionalLibraryDirectories>$(SolutionDir)lib\$(PlatformTarget)\;$(OutputPath)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>SDL2.lib;SDL2main.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClInclude Include="include\Engine\Application\Types.h" />
+    <ClInclude Include="include\Engine\Application\PlatformGraphics.h" />
+    <ClInclude Include="include\Engine\Core\Assertions.h" />
+    <ClInclude Include="include\Engine\Core\DataTypes\Boolean.h" />
+    <ClInclude Include="include\Engine\Core\DataTypes\Byte.h" />
+    <ClInclude Include="include\Engine\Core\DataTypes\Char.h" />
+    <ClInclude Include="include\Engine\Core\DataTypes\DataTypes.h" />
+    <ClInclude Include="include\Engine\Core\DataTypes\Int16.h" />
+    <ClInclude Include="include\Engine\Core\DataTypes\Int64.h" />
+    <ClInclude Include="include\Engine\Core\DataTypes\SByte.h" />
+    <ClInclude Include="include\Engine\Core\DataTypes\UInt16.h" />
+    <ClInclude Include="include\Engine\Core\DataTypes\UInt32.h" />
+    <ClInclude Include="include\Engine\Core\DataTypes\UInt64.h" />
+    <ClInclude Include="include\Engine\Core\DataTypes\UIntPtr.h" />
+    <ClInclude Include="include\Engine\Core\DataTypes\Void.h" />
+    <ClInclude Include="include\Engine\Core\DataTypes\VoidPtr.h" />
+    <ClInclude Include="include\Engine\Engine\Components\Behavior.h" />
+    <ClInclude Include="include\Engine\Engine\Components\Camera.h" />
+    <ClInclude Include="include\Engine\Engine\Component.h" />
+    <ClInclude Include="include\Engine\Engine\Components\Input.h" />
+    <ClInclude Include="include\Engine\Engine\EngineCoreDefs.h" />
+    <ClInclude Include="include\Engine\Engine\Event.h" />
+    <ClInclude Include="include\Engine\Engine\EventDispatcher.h" />
+    <ClInclude Include="include\Engine\Engine\Actor.h" />
+    <ClInclude Include="include\Engine\Engine\Graphics\API\GL\Engine.Graphics.API.GL.FrameBuffer.h" />
+    <ClInclude Include="include\Engine\Engine\Graphics\API\GL\Engine.Graphics.API.GL.IndexBuffer.h" />
+    <ClInclude Include="include\Engine\Engine\Graphics\API\GL\Engine.Graphics.API.GL.Shader.h" />
+    <ClInclude Include="include\Engine\Engine\Graphics\API\GL\Engine.Graphics.API.GL.Texture2D.h" />
+    <ClInclude Include="include\Engine\Engine\Graphics\API\GL\Engine.Graphics.API.GL.VertexBuffer.h" />
+    <ClInclude Include="include\Engine\Engine\Graphics\Buffer.h" />
+    <ClInclude Include="include\Engine\Engine\Graphics\DirectionalLight.h" />
+    <ClInclude Include="include\Engine\Engine\Graphics\DynamicIndexBuffer.h" />
+    <ClInclude Include="include\Engine\Engine\Graphics\DynamicVertexBuffer.h" />
+    <ClInclude Include="include\Engine\Engine\Graphics\FrameBuffer.h" />
+    <ClInclude Include="include\Engine\Engine\Graphics\Graphics.h" />
+    <ClInclude Include="include\Engine\Engine\Graphics\IndexBuffer.h" />
+    <ClInclude Include="include\Engine\Engine\Graphics\Mesh.h" />
+    <ClInclude Include="include\Engine\Engine\Graphics\VertexInputLayout.h" />
+    <ClInclude Include="include\Engine\Engine\Graphics\Material.h" />
+    <ClInclude Include="include\Engine\Engine\Graphics\Shader.h" />
+    <ClInclude Include="include\Engine\Engine\Graphics\Texture.h" />
+    <ClInclude Include="include\Engine\Engine\Graphics\Texture2D.h" />
+    <ClInclude Include="include\Engine\Engine\Graphics\Vertex.h" />
+    <ClInclude Include="include\Engine\Engine\Graphics\VertexBuffer.h" />
+    <ClInclude Include="include\Engine\Engine\Graphics\Light.h" />
+    <ClInclude Include="include\Engine\Engine\Scene.h" />
+    <ClInclude Include="include\Engine\Engine\SceneGraph.h" />
+    <ClInclude Include="include\Engine\Engine\Script.h" />
+    <ClInclude Include="include\Engine\Exception.h" />
+    <ClCompile Include="src\Engine\Application\Platform.cpp" />
+    <ClCompile Include="src\Engine\Application\Platform.GraphicsDevice.cpp" />
+    <ClCompile Include="src\Engine\Application\SDL.cpp" />
+    <ClCompile Include="src\Engine\Core\DataTypes\Boolean.cpp" />
+    <ClCompile Include="src\Engine\Core\DataTypes\Byte.cpp" />
+    <ClCompile Include="src\Engine\Core\DataTypes\Char.cpp" />
+    <ClCompile Include="src\Engine\Core\DataTypes\DataType.cpp" />
+    <ClCompile Include="src\Engine\Core\DataTypes\Void.cpp" />
+    <ClCompile Include="src\Engine\Core\DataTypes\VoidPtr.cpp" />
+    <ClCompile Include="src\Engine\Engine\Components\Behavior.cpp" />
+    <ClCompile Include="src\Engine\Engine\Components\Camera.cpp" />
+    <ClCompile Include="src\Engine\Engine\Component.cpp" />
+    <ClCompile Include="src\Engine\Engine\Components\Input.cpp" />
+    <ClCompile Include="src\Engine\Engine\Event.cpp" />
+    <ClCompile Include="src\Engine\Engine\EventDispatcher.cpp" />
+    <ClCompile Include="src\Engine\Engine\Actor.cpp" />
+    <ClCompile Include="src\Engine\Engine\Graphics\DirectionalLight.cpp" />
+    <ClCompile Include="src\Engine\Engine\Graphics\DynamicIndexBuffer.cpp" />
+    <ClCompile Include="src\Engine\Engine\Graphics\DynamicVertexBuffer.cpp" />
+    <ClCompile Include="src\Engine\Engine\Graphics\API\GL\Engine.Graphics.API.GL.DynamicIndexBuffer.cpp" />
+    <ClCompile Include="src\Engine\Engine\Graphics\API\GL\Engine.Graphics.API.GL.DynamicVertexBuffer.cpp" />
+    <ClCompile Include="src\Engine\Engine\Graphics\API\GL\Engine.Graphics.API.GL.Texture2D.cpp" />
+    <ClCompile Include="src\Engine\Engine\Graphics\API\GL\Engine.Graphics.API.GL.IndexBuffer.cpp" />
+    <ClCompile Include="src\Engine\Engine\Graphics\API\GL\Engine.Graphics.API.GL.Shader.cpp" />
+    <ClCompile Include="src\Engine\Engine\Graphics\API\GL\Engine.Graphics.API.GL.Texture.cpp" />
+    <ClCompile Include="src\Engine\Engine\Graphics\API\GL\Engine.Graphics.API.GL.VertexBuffer.cpp" />
+    <ClCompile Include="src\Engine\Engine\Graphics\FrameBufer.cpp" />
+    <ClCompile Include="src\Engine\Engine\Graphics\GraphicsSettings.cpp" />
+    <ClCompile Include="src\Engine\Engine\Graphics\IndexBuffer.cpp" />
+    <ClCompile Include="src\Engine\Engine\Graphics\Light.cpp" />
+    <ClCompile Include="src\Engine\Engine\Graphics\Mesh.cpp" />
+    <ClCompile Include="src\Engine\Engine\Graphics\VertexInputLayout.cpp" />
+    <ClCompile Include="src\Engine\Engine\Graphics\Material.cpp" />
+    <ClCompile Include="src\Engine\Engine\Graphics\Shader.cpp" />
+    <ClCompile Include="src\Engine\Engine\Graphics\Texture.cpp" />
+    <ClCompile Include="src\Engine\Engine\Graphics\Texture2D.cpp" />
+    <ClCompile Include="src\Engine\Engine\Graphics\Vertex.cpp" />
+    <ClCompile Include="src\Engine\Engine\Graphics\VertexBuffer.cpp" />
+    <ClCompile Include="src\Engine\Engine\Scene.cpp" />
+    <ClCompile Include="src\Engine\Engine\SceneGraph.cpp" />
+    <ClCompile Include="src\Engine\Engine\Script.cpp" />
+    <ClCompile Include="src\Engine\Exception.cpp" />
+    <ClCompile Include="src\Engine\Exceptions\ApplicationException.cpp" />
+    <ClCompile Include="src\Engine\GL\GL3.c">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="src\Engine\Engine\Layer.cpp" />
+    <ClCompile Include="src\Engine\Engine\LayerStack.cpp" />
+    <ClCompile Include="src\Engine\Engine\Log.cpp" />
+    <ClCompile Include="src\Engine\Core\DataTypes\Int16.cpp" />
+    <ClCompile Include="src\Engine\Core\DataTypes\Int32.cpp" />
+    <ClCompile Include="src\Engine\Core\DataTypes\Int64.cpp" />
+    <ClCompile Include="src\Engine\Core\DataTypes\IntPtr.cpp" />
+    <ClCompile Include="src\Engine\Math\AngleF.cpp" />
+    <ClCompile Include="src\Engine\Math\EulerAngleF.cpp" />
+    <ClCompile Include="src\Engine\Math\TransformF.cpp" />
+    <ClCompile Include="src\Engine\Engine\ObjectUtility.cpp" />
+    <ClCompile Include="src\Engine\Point.cpp" />
+    <ClCompile Include="src\Engine\Rectangle.cpp" />
+    <ClCompile Include="src\Engine\Core\DataTypes\SByte.cpp" />
+    <ClCompile Include="src\Engine\Core\DataTypes\String.cpp" />
+    <ClCompile Include="src\Engine\Engine\Tag.cpp" />
+    <ClCompile Include="src\Engine\Timer.cpp" />
+    <ClCompile Include="src\Engine\Core\DataTypes\UInt16.cpp" />
+    <ClCompile Include="src\Engine\Core\DataTypes\UInt32.cpp" />
+    <ClCompile Include="src\Engine\Core\DataTypes\UInt64.cpp" />
+    <ClCompile Include="src\Engine\Core\DataTypes\UIntPtr.cpp" />
+    <ClCompile Include="src\PCH.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Create</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="src\Engine\Engine\Object.cpp" />
+    <ClCompile Include="src\Engine\Application\Application.cpp" />
+    <ClCompile Include="src\Engine\Math\MathF.cpp" />
+    <ClCompile Include="src\Engine\Math\Matrix4Fx4F.cpp" />
+    <ClCompile Include="src\Engine\Math\PlaneF.cpp" />
+    <ClCompile Include="src\Engine\Math\QuaternionF.cpp" />
+    <ClCompile Include="src\Engine\Engine\Transform.cpp" />
+    <ClCompile Include="src\Engine\Math\VectorF.cpp" />
+    <ClInclude Include="include\Engine\Exceptions\ApplicationException.h" />
+    <ClInclude Include="include\Engine\GL\GL3.h" />
+    <ClInclude Include="include\Engine\GL\KHRPlatform.h" />
+    <ClInclude Include="include\Engine\Engine\Log.h" />
+    <ClInclude Include="include\Engine\Core\DataTypes\Int32.h" />
+    <ClInclude Include="include\Engine\Core\DataTypes\IntPtr.h" />
+    <ClInclude Include="include\Engine\Math\AngleF.h" />
+    <ClInclude Include="include\Engine\Math\ColorF.h" />
+    <ClInclude Include="include\Engine\Math\EulerAngleF.h" />
+    <ClInclude Include="include\Engine\Math\TransformF.h" />
+    <ClInclude Include="include\Engine\Point.h" />
+    <ClInclude Include="include\Engine\Rectangle.h" />
+    <ClInclude Include="include\Engine\Engine\Tag.h" />
+    <ClInclude Include="include\Engine\Timer.h" />
+    <ClInclude Include="include\Engine\Engine\Timestep.h" />
+    <ClInclude Include="src\Engine\Application\SDL.h" />
+    <ClInclude Include="src\Engine\Engine\Graphics\API\GL\stb_image.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="include\Engine\Application\Application.h" />
+    <ClInclude Include="include\Engine\CompilerDefs.h" />
+    <ClInclude Include="include\Engine\CoreDefs.h" />
+    <ClInclude Include="include\Engine\Engine\Layer.h" />
+    <ClInclude Include="include\Engine\Engine\LayerStack.h" />
+    <ClInclude Include="include\Engine\Math\VectorF.h" />
+    <ClInclude Include="include\Engine\Engine\Object.h" />
+    <ClInclude Include="include\Engine\Engine\ObjectUtility.h" />
+    <ClInclude Include="include\Engine\Core\DataTypes\String.h" />
+    <ClInclude Include="include\Engine\Math\MathF.h" />
+    <ClInclude Include="include\Engine\Math\Matrix4Fx4F.h" />
+    <ClInclude Include="include\Engine\Math\PlaneF.h" />
+    <ClInclude Include="include\Engine\Math\QuaternionF.h" />
+    <ClInclude Include="include\Engine\Engine\Transform.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="CMakeLists.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="CMakeSettings.json" />
+    <ClInclude Include="include\Engine\Engine\Graphics\API\GL\Engine.Graphics.API.GL.Texture.h" />
+    <ClInclude Include="include\Engine\Engine\Graphics\API\GL\Engine.Graphics.API.GL.DynamicIndexBuffer.h" />
+    <ClInclude Include="include\Engine\Engine\Graphics\API\GL\Engine.Graphics.API.GL.DynamicVertexBuffer.h" />
+    <None Include="LICENSE" />
+    <None Include="README.md" />
+    <ClCompile Include="src\Engine\Engine\Graphics\API\GL\Engine.Graphics.API.GL.FrameBuffer.cpp" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

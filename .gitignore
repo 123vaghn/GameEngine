@@ -30,3 +30,44 @@
 *.exe
 *.out
 *.app
+
+# These do not need to be included. When you build the projects, you'll create local *.ipch files on your own.
+# It seems like a waste of space, honestly.
+*.ipch
+*.db
+
+# I have no idea what this is, but we don't need it.
+Browse.VC.db
+
+.vs/**
+*.ncproj.*.user
+
+[Dd]ebug
+[Rr]elease
+
+[Tt]humbs.db
+.DS_Store
+
+#Visual Studio files
+*.[Oo]bj
+*.exe
+*.pdb
+*.user
+*.aps
+*.pch
+*.vspscc
+*.vssscc
+*_i.c
+*_p.c
+*.ncb
+*.suo
+*.tlb
+*.tlh
+*.bak
+*.[Cc]ache
+*.ilk
+*.log
+*.lib
+*.sbr
+*.sdf
+ipch/

@@ -1,0 +1,17 @@
+#pragma once
+
+#include "Engine/Core/DataTypes/Boolean.h"
+#include "Engine/Core/DataTypes/Byte.h"
+#include "Engine/Core/DataTypes/Char.h"
+#include "Engine/Core/DataTypes/Int16.h"
+#include "Engine/Core/DataTypes/Int32.h"
+#include "Engine/Core/DataTypes/Int64.h"
+#include "Engine/Core/DataTypes/IntPtr.h"
+#include "Engine/Core/DataTypes/SByte.h"
+#include "Engine/Core/DataTypes/String.h"
+#include "Engine/Core/DataTypes/UInt16.h"
+#include "Engine/Core/DataTypes/UInt32.h"
+#include "Engine/Core/DataTypes/UInt64.h"
+#include "Engine/Core/DataTypes/UIntPtr.h"
+#include "Engine/Core/DataTypes/Void.h"
+#include "Engine/Core/DataTypes/VoidPtr.h"
